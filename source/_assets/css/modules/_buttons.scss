@@ -1,0 +1,120 @@
+/**
+ * Button SCSS Partial
+ *
+ * @requires framework/_type.scss, framework/_color.scss, framework/_mixins.scss,
+ *           framework/_variable.scss, modules/_typography.scss
+ */
+
+/* ==|== Buttons =================
+	Containers
+========================================== */
+
+.btns {
+
+}
+
+.btns--sizing {
+	@extend %paragraph;
+}
+
+.btns--center {
+	text-align: center;
+}
+
+%btns--fixed {
+	position: fixed;
+	top: $measure-unit;
+	right: $measure-unit;
+	z-index: 10;
+	@include max-width($bp-tiny) {
+		top: $measure-unit / 2;
+		right: $measure-unit / 2;
+	}
+}
+
+.btns--fixed {
+	@extend %btns--fixed;
+}
+
+.btns--left {
+	.btn,
+	.btn--outline {
+		margin-left: 0;
+		margin-right: $measure-unit;
+	}
+}
+
+.btns--menu {
+	@extend %btns--fixed;
+}
+
+/* ==|== Buttons =================
+	Generic button styling
+========================================== */
+
+%btn {
+	border: $btn-border solid $color-link-primary;
+	border-radius: $btn-radius;
+	display: inline-block;
+	font-weight: $font-weight-bold;
+	line-height:1.3;
+	margin: $measure-unit / 2 $measure-unit $measure-unit / 2;
+	padding: $measure-unit / 2 $measure-unit rem($measure / 2 + 1);
+	text-decoration: none;
+	transition: all $timing cubic-bezier(#{$bezier-nice});
+	width: auto;
+	@include active {
+		transform: scale(0.95, 0.95);
+	}
+}
+
+/* ==|== Buttons =================
+	Solid button
+========================================== */
+
+.btn {
+	@extend %btn;
+	background: $color-link-primary;
+	color: $color-white;
+	text-shadow: none;
+	@include hover {
+		background: $color-link-primary-hover;
+		border-color: $color-link-primary-hover;
+		color: $color-white;
+	}
+	.btns--read-more & {
+		max-width: $measure-unit * 14;
+		overflow: hidden;
+		padding-left: $measure-unit * 2;
+		text-indent: $measure-unit * -1;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		width: 100%;
+	}
+}
+
+/* ==|== Buttons =================
+	Outline (ghost) button
+========================================== */
+
+.btn--outline {
+	@extend %btn;
+	@include hover {
+		border-color: $color-link-primary-hover;
+		color: $color-link-primary-hover;
+	}
+}
+
+/* ==|== Buttons =================
+	Social buttons
+========================================== */
+
+[href*="dribbble.com"] {
+	@include social-color($color-s-dribbble, true, true, 15%);
+}
+[href*="twitter.com"] {
+	@include social-color($color-s-twitter, true, false);
+}
+[href*="instagram.com"] {
+	@include social-color($color-s-instagram, false);
+}

@@ -1,0 +1,47 @@
+/**
+ * List SCSS Partial
+ */
+
+/* ==|== Lists =================
+	1. Default
+========================================== */
+
+ul,
+ol {
+	@extend %paragraph;
+	max-width:rem($layout-max-width + ($measure * 3));
+	list-style: circle outside none;
+	padding:0 $measure-unit * 1.5;
+	& > li {
+		max-width:$layout-max-width-unit;
+		& > ul {
+			list-style:disc outside none;
+			margin:0;
+		}
+		& > ol {
+			list-style: lower-roman outside none;
+			margin:0;
+		}
+	}
+}
+ol {
+	list-style: decimal outside none;
+}
+
+/* ==|== Lists =================
+  Inline
+========================================== */
+
+.list--inline {
+  max-width: $layout-max-width-unit;
+  padding: 0;
+  li {
+    display: inline;
+    & + li {
+      &:before {
+        color: $color-accent;
+        content:' • ';
+      }
+    }
+  }
+}

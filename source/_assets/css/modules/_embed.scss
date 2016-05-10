@@ -1,0 +1,19 @@
+/**
+ * Embed SCSS Partial
+ *
+ * @requires framework/_type.scss, framework/_variable.scss
+ */
+
+/* ==|== Embed =================
+  iframes
+========================================== */
+
+
+iframe {
+  margin: $measure-unit auto;
+  display: block;
+  &[id^="twitter-widget"] {
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+}

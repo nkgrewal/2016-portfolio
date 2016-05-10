@@ -1,0 +1,168 @@
+/**
+ * Typography SCSS Partial
+ *
+ * @requires framework/_type.scss
+ */
+
+/* ==|== Typography =================
+	Headings
+========================================== */
+
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+	@include font-feature-settings(liga kern onum);
+	line-height: $font-default-line-height;
+	max-width: $layout-max-width-unit;
+}
+
+h1 {
+	@include font-size(52);
+	font-weight: $font-weight-bold;
+	margin: $measure-unit * 4 auto $measure-unit * 2;
+}
+
+h2 {
+	@include font-size(32);
+	font-weight: $font-weight-bold;
+	margin: $measure-unit * 3 auto $measure-unit ;
+}
+
+%h3 {
+	@include font-size(25);
+}
+
+h3 {
+	@extend %h3;
+	font-weight: $font-weight-bold;
+	margin: $measure-unit * 1.5 auto $measure-unit;
+}
+
+%h4 {
+	@include font-size(22);
+	margin: $measure-unit / 2 auto $measure-unit;
+}
+
+h4 {
+	@extend %h4;
+}
+h5 {
+	@extend %h4;
+}
+h6 {
+	@extend %h4;
+}
+
+@include max-width($bp-small) {
+	h1 {
+		@include font-size(42);
+	}
+	h2 {
+		@include font-size(28);
+	}
+	%h3 {
+		@include font-size(22);
+	}
+	%h4 {
+		@include font-size(20);
+	}
+}
+@include max-width($bp-tiny) {
+	h1 {
+		 @include font-size(34);
+	}
+	h2 {
+		@include font-size(24);
+	}
+	%h3 {
+		@include font-size(20);
+	}
+	%h4 {
+		@include font-size(18);
+	}
+}
+
+/* ==|== Typography =================
+	Paragraphs
+========================================== */
+
+%paragraph {
+	@include font-size(18);
+	line-height: 1.45;
+	margin: $measure-unit / 2 auto $measure-unit;
+	@include max-width($bp-small) {
+		@include font-size(17);
+	}
+	@include max-width($bp-tiny) {
+		@include font-size(16);
+	}
+}
+p {
+	@extend %paragraph;
+}
+.paragraph--pullout {
+	@extend %h3;
+}
+
+/* ==|== Typography =================
+	Small caps
+========================================== */
+
+.small-caps,
+.sc {
+	@include font-feature-settings(smcp c2sc lnum kern);
+}
+.small-caps {
+	line-height: 1.1;
+}
+
+/* ==|== Typography =================
+	Blockquote
+========================================== */
+
+blockquote {
+	border-left: lighten($color-accent,15%) solid $btn-border;
+	font-weight: $font-weight-normal;
+	font-style: italic;
+	margin: $measure-unit auto;
+	max-width: $layout-max-width-unit;
+	padding-left: $measure-unit * 1.5;
+	& + & {
+		margin-top: $measure-unit * 2;
+	}
+	p {
+		@include font-size(24);
+		@include max-width($bp-small) {
+			@include font-size(22);
+		}
+		@include max-width($bp-tiny) {
+			@include font-size(20);
+		}
+	}
+	&.blockquote--long {
+		p {
+			@extend %paragraph;
+		}
+	}
+	cite {
+		@extend %paragraph;
+		display: block;
+		font-style: normal;
+		margin-top: $measure-unit / 2;
+		&:before {
+			content:'— ';
+		}
+	}
+}
+
+/* ==|== Typography =================
+	Underlines, strikethroughs etc
+========================================== */
+
+abbr[title] {
+	background: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQgMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNCAyIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cmVjdCBmaWxsPSIjMzMzMzMzIiB3aWR0aD0iMiIgaGVpZ2h0PSIyIi8+PC9zdmc+) repeat-x left 88%;
+	background-size: rem(2) rem(1);
+	border: 0;
+}
+
+.strike {
+	text-decoration: line-through;
+}

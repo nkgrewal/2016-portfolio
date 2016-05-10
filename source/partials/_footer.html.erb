@@ -1,0 +1,14 @@
+<footer class="footer">
+  <div class="group">
+  	<p>Built on <%= link_to "Rob Sterlini", "https://robsterlini.co.uk", title: "Visit Rob’s site", rel: "nofollow" %>’s Middleman boilerplate <%= link_to "the repository on GitHub", "https://github.com/robsterlini/middleplate", title: "Fork Middleplate on Github" %>.
+    <ul class="list--inline"><!--
+      <% data.pages.pages.each do |nav| %>
+        <% if nav.nav.footer != false %>
+          --><li>
+            <a title="<%= nav.nav.alt %>" href="/<%= nav.slug %>"><%= nav.nav.label %></a>
+          </li><!--
+        <% end %>
+      <% end %>
+    --></ul>
+  </div>
+</footer>

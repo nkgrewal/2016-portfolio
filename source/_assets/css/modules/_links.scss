@@ -1,0 +1,23 @@
+/**
+ * Links SCSS Partial
+ *
+ * @requires framework/_colors.scss
+ */
+
+
+/* ==|== Links =================
+	Primary
+========================================== */
+
+a {
+	color:$color-link-primary;
+	transition:color $timing cubic-bezier(#{$bezier-nice});
+	text-decoration: none;
+	&:hover,
+	&:focus {
+		color:$color-link-primary-hover;
+	}
+	&:active {
+		color:$color-link-primary-active;
+	}
+}

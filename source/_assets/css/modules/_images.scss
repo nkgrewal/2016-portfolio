@@ -1,0 +1,15 @@
+/**
+ * Image SCSS Partial
+ */
+
+/* ==|== Images =================
+  Images
+========================================== */
+
+img,
+figure svg, {
+  display: block;
+	height:auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
