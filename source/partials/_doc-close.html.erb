@@ -1,6 +1,5 @@
-		<footer>
-			&copy; <% Time.now.year %> Navreen Grewal
-		</footer>
-    <%= javascript_include_tag :all %>
+    <% if !current_page.data.no_footer %>
+      <%= partial "partials/footer" %>
+    <% end %>
   </body>
 </html>

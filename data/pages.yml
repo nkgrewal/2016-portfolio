@@ -1,0 +1,68 @@
+########
+#   PAGES BY DEFAULT
+#   ================
+#       - Home      (/)
+#       - Blog      (/blog)
+#       - Archive   (/archive)
+#
+#   OPTIONS
+#   =======
+#    - slug:           [string]    required     The slug of the page (must be in a slug format
+#                                               e.g. Example page -> example-page)
+#      title:          [string]    required     The page title (displayed in the header tag and <title>)
+#      template:       [string]    optional     Template name (if a dynamic page)
+#      description:    [string]    required     Page description
+#      nav:
+#          label:      [string]    required     The title you want to appear in the masthead navigation
+#          alt:        [strong]    required     Title text for the link
+#          masthead:   [Boolean]   optional     Switch to hide page from footer navigation
+#          footer:     [Boolean]   optional     Switch to hide page from footer navigation
+
+pages:
+
+  ## Home
+  - slug: ""
+    title: "Home"
+    nav:
+      label: "Home"
+      alt: "Go home"
+
+  ## Blog home
+  - slug: "blog"
+    nav:
+      label: "Blog"
+      alt: "Read my blog"
+
+  ## Archive
+  - slug: "archive"
+    nav:
+      label: "Archive"
+      alt: "Peruse the archive of old posts"
+
+  ## Example page
+  - slug: "example-page"
+    title: "Test123"
+    template: "generic-page"
+    description: "Here is what the page is"
+    nav:
+      label: "Example one"
+      alt: "This is page using the generic-page template"
+      footer: false
+
+  ## Second example page
+  - slug: "example-page-2"
+    title: "Test123"
+    template: "generic-page"
+    description: "Here is what the page is"
+    nav:
+      label: "Example two"
+      alt: "This is another page also using the generic-page template"
+      footer: false
+
+  ## Custom page
+  - slug: "custom-page"
+    title: "Custom page"
+    description: "This is a page with a custom template as defined in the /source folder as custom-page.html.erb"
+    nav:
+      label: "Custom Page"
+      alt: "A page with a custom template"

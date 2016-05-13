@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="robots" content="index,follow,noarchive" /> 
 
     <!-- Use title if it's in the page YAML frontmatter -->
-    <title><%= current_page.data.title || "Middleman" %></title>
+    <title><%= yield_content(:title) || current_page.data.title || data.site.title %> - <%= data.site.title_suffix %></title>
+
+    <% meta_description = yield_content(:meta_description) || current_page.data.description || data.site.description %>
+    <meta name="description" content="<%= meta_description %>">
 
     <!-- Styles -->
     <%= stylesheet_link_tag :site %>
@@ -19,3 +23,14 @@
   </head>
 
   <body class="<%= page_classes %>">
+  <% if !current_page.data.no_masthead %>
+    <%= partial "partials/masthead" %>
+  <% end %>
+
+  <!--[if lt IE 8]>
+    <div class="error">
+      <div class="group">
+        <p>Come on, it’s 2015. <a href="http://browsehappy.com" title="Find out about updating your browser here">Update your browser</a>, or stuff is going to look a bit upside down! Don’t say I didn’t warn you!</p>
+      </div>
+    </div>
+  <![endif]-->

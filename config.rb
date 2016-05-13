@@ -35,12 +35,15 @@ activate :blog do |blog|
 end
 #Copy above to make new blog
 
+
 # Define where site assets will live
-set :css_dir, '_assets/css'
-set :js_dir, '_assets/js'
-set :images_dir, 'blog/images'
+set :css_dir, 'assets/css'
+set :js_dir, 'assets/js'
+set :fonts_dir, 'assets/fonts'
+set :images_dir, 'images'
 #set :content_dir, '../../content' | This is the content directory relative to the images_dir
 set :partials_dir, 'partials'
+set :relative_links, true
 
 # Use relative URLs & pretty URLs
 activate :relative_assets
@@ -50,6 +53,13 @@ activate :directory_indexes   #render posts as index.html in post-titled folder
 activate :autoprefixer do |config|
   config.browsers = ['last 2 versions', 'Explorer >= 9']
 end 
+
+# Create pages
+data.pages.pages.each do |p|
+  if p[:template]
+    proxy "#{p[:slug]}", "/templates/#{p[:template]}.html", :locals => {:page => p}
+  end
+end
 
 # Reload the browser automatically whenever files change
 configure :development do

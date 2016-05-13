@@ -1,0 +1,13 @@
+<% defined? page.description { content_for(:meta_description, "#{page.description}") } %>
+
+<h1><%= current_page.data.title || page.title || "Test page" %></h1>
+
+
+<h2><%= current_page.data.company %></h2>
+<p><%= current_page.data.company %></p>
+
+<%= image_tag(data.site.pf_img + current_page.data.images[0]) %>
+HELLO
+
+
+<%= yield_content :moreinfo %>
